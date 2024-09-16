@@ -32,8 +32,19 @@ server.post('/customer', async (request, response) => {
     return response.status(204).send()
 })
 
-server.put('/customer/:id', () => {
-    return 'Update a customer'
+server.put('/customer/:id', async (request, response) => {
+    const customerId = request.params.id
+    const { name, age, email, phone, address } = request.body
+
+    await database.update(customerId, {
+        name,
+        age,
+        email,
+        phone,
+        address 
+    })
+
+    return response.status(204).send()
 })
 
 server.delete('/customer/:id', () => {

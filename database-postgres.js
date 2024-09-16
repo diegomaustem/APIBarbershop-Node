@@ -28,8 +28,12 @@ export class databasePostgres {
             VALUES(${registry}, ${name}, ${age}, ${email}, ${phone}, ${address})`   
     }
 
-    update(id, customer) {
+    async update(id, customer) {
 
+        const { name, age, email, phone, address } = customer
+
+        await sql`update customers set name = ${name}, age = ${age}, email = ${email},
+            phone = ${phone}, address = ${address} WHERE id = ${id}` 
     }
 
     delete(id) {
