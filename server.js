@@ -29,7 +29,7 @@ server.post('/customer', async (request, response) => {
         address
     })
 
-    return response.status(204).send()
+    return response.status(201).send()
 })
 
 server.put('/customer/:id', async (request, response) => {
