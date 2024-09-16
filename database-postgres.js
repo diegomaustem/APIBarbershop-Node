@@ -4,7 +4,6 @@ import { sql } from './db.js'
 export class databasePostgres {
 
     async list(search) {
-
         let customers
 
         if(search) {
@@ -19,7 +18,6 @@ export class databasePostgres {
     }
 
     async create(customer) {
-
         const { name, age, email, phone, address } = customer
 
         const registry = randomUUID()
@@ -29,7 +27,6 @@ export class databasePostgres {
     }
 
     async update(id, customer) {
-
         const { name, age, email, phone, address } = customer
 
         await sql`update customers set name = ${name}, age = ${age}, email = ${email},

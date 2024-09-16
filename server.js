@@ -5,7 +5,6 @@ const server = fastify()
 const database = new databasePostgres()
 
 server.get('/customers', async (request, response) => {
-
     const search = request.query.search
 
     const customers = await database.list(search)
@@ -18,7 +17,6 @@ server.get('/customer/:id', () => {
 })
 
 server.post('/customer', async (request, response) => {
-
     const { name, age, email, phone, address } = request.body
 
     await database.create({
