@@ -5,14 +5,17 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "node --watch --no-warnings server.js"
+    "start": "node --env-file .env server.js",
+    "dev": "node --env-file .env --watch --no-warnings server.js",
+    "now": "node --env-file .env create-tables.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "fastify": "^4.28.1"
+    "env-var": "^7.5.0",
+    "fastify": "^4.28.1",
+    "postgres": "^3.4.4"
   }
 }
