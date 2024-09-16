@@ -9,7 +9,7 @@ export class databasePostgres {
 
         if(search) {
 
-            customers = await sql`select * from customers where name ilike %${search}%`
+            customers = await sql`select * from customers where name ilike ${'%' +search+ '%'}`
 
         } else {
             customers = await sql`select * from customers`
