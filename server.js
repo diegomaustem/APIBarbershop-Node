@@ -47,8 +47,12 @@ server.put('/customer/:id', async (request, response) => {
     return response.status(204).send()
 })
 
-server.delete('/customer/:id', () => {
-    return 'Delete a customer'
+server.delete('/customer/:id', async(request, response) => {
+    const customerId = request.params.id
+
+    await database.delete(customerId)
+
+    return response.status(200).send()
 })
 
 server.listen({

@@ -36,7 +36,7 @@ export class databasePostgres {
             phone = ${phone}, address = ${address} WHERE id = ${id}` 
     }
 
-    delete(id) {
-
+    async delete(id) {
+        await sql`delete from customers WHERE id = ${id}`
     }
 }
