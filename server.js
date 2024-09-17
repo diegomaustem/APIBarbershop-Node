@@ -58,5 +58,5 @@ server.delete('/customer/:id', async(request, response) => {
 })
 
 server.listen({
-    port: 2258
+    port: process.env.PORT ?? 2258
 })
