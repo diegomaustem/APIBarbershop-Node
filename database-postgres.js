@@ -6,9 +6,11 @@ export class databasePostgres {
     async list(search) {
         let customers
 
-        if(search) {
+        if(Number.isInteger(+search)) {
+            customers = await sql `select * from customers WHERE id = ${search}`
 
-            customers = await sql`select * from customers where name ilike ${'%' +search+ '%'}`
+        } else if(search) {
+            customers = await sql`select * from customers WHERE name ilike ${'%' +search+ '%'}`
 
         } else {
             customers = await sql`select * from customers`

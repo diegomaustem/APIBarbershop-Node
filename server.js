@@ -12,8 +12,12 @@ server.get('/customers', async (request, response) => {
     return customers
 })
 
-server.get('/customer/:id', () => {
-    return 'Only a customer'
+server.get('/customer/:id', async (request, response) => {
+    const id = request.params.id 
+
+    const customer = await database.list(id)
+    
+    return customer
 })
 
 server.post('/customer', async (request, response) => {
