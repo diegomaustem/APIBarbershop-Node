@@ -1,6 +1,5 @@
 import { sql } from './db.js'
 
-
 sql`
     CREATE TABLE customers (
         id SERIAL PRIMARY KEY,
@@ -14,14 +13,3 @@ sql`
 `.then( () => {
     console.log('Success created table')
 });
-
-
-
-// Code to create the second table below
-// CREATE TABLE stylecut 
-// (   id SERIAL PRIMARY KEY,         
-//     name VARCHAR(255) NOT NULL,  
-//     price NUMERIC(10, 2) NOT NULL, 
-//     description TEXT,              
-//     customer_id INTEGER REFERENCES customers(id)
-// );
